@@ -4,6 +4,7 @@
   hosts: docker
   gather_facts: no
   vars:
+    ansible_python_interpreter: "PATH=/home/core/bin:$PATH python"
     servercerts: /Volumes/Hulk/backup/keys/docker.zip
   roles:
       - defunctzombie.coreos-bootstrap
