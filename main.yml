@@ -1,0 +1,10 @@
+---
+- name: Configure my Docker machine.
+  user: core
+  hosts: docker
+  gather_facts: no
+  vars:
+    servercerts: /Volumes/Hulk/backup/keys/docker.zip
+  roles:
+      - defunctzombie.coreos-bootstrap
+      - docker

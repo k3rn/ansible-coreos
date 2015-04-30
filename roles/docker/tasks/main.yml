@@ -1,0 +1,13 @@
+---
+- name: Copy systemd config file
+  template: src=docker.service  dest=/etc/systemd/system/docker.service
+  notify: service docker restart
+  sudo: yes
+
+- name: Ensures that /var/ssl exists
+  file: path=/var/ssl state=directory
+  sudo: yes
+
+- name: Extract the server certs
+  unarchive: src={{ servercerts }} dest=/var/ssl/ copy=yes
+  sudo: yes

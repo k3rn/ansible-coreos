@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker Application Container Engine
+Documentation=http://docs.docker.io
+
+[Service]
+ExecStartPre=/bin/mount --make-rprivate /
+# Run docker but don't have docker automatically restart
+# containers. This is a job for systemd and unit files.
+ExecStart=/usr/bin/docker -d --tlsverify --tlscacert=/var/ssl/ca.pem --tlscert=/var/ssl/server-cert.pem --tlskey=/var/ssl/server-key.pem -H fd:// -H 0.0.0.0:4243
+
+[Install]
+WantedBy=multi-user.target
