@@ -1,0 +1,8 @@
+Install the following playbook:
+	ansible-galaxy install defunctzombie.coreos-bootstrap
+
+Use the servercerts to set location of the zip with the certificates/keys
+that the server needs.
+
+Learn how to generate the certificate/keys here:
+https://mateuskern.com/my-solution-to-docker-on-os-x.html
